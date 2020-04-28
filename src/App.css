@@ -34,7 +34,7 @@
 .auto-progress-bar {
   width: 500px;
   height: 50px;
-  border-radius: 25px;
+  border-radius: 27px;
   border: 2px solid pink;
   margin: auto;
   display: flex; 
