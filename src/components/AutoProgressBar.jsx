@@ -6,16 +6,26 @@ export default class AutoProgressBar extends Component {
     this.state = {
       initialFill: 50
     };
+    this.interval = undefined;
   };
 
   incrementBar = () => {
     let currentFill = this.state.initialFill
-    currentFill += 50;
+    if (currentFill <= 500) {
+      currentFill += 50;
+    }
     this.setState({ initialFill: currentFill })
   };
 
   autoLoad = () => {
-    setInterval(this.incrementBar.bind(this), 1000);
+    this.interval = setInterval(this.incrementBar.bind(this), 1000);
+  };
+
+  resetBar = () => {
+    if (this.state.initialFill >= 500) {
+      clearInterval(this.interval)
+    }
+    this.setState({ initialFill: 50 })
   };
 
   render() {
@@ -29,6 +39,11 @@ export default class AutoProgressBar extends Component {
           className="auto-load-btn"
           onClick={this.autoLoad}>
           Load
+        </button>
+        <button
+          className="reset-button"
+          onClick={this.resetBar}>
+          Reset
         </button>
       </div>
     )
