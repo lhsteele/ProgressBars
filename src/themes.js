@@ -5,3 +5,7 @@ export const SUNSET = {
 export const FLAMINGO = {
   color: '#ffc0cb'
 }
+
+export const PALM = {
+  color: '#4CAF50'
+}
