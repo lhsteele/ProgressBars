@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-export default class AutoProgressBar extends Component {
+export default class ManualProgressBar extends Component {
   constructor(props) {
     super(props)
     this.state = {
       initialFill: 50
     };
-    this.interval = undefined;
+    this.increment = undefined;
   };
 
   incrementBar = () => {
@@ -17,28 +17,21 @@ export default class AutoProgressBar extends Component {
     this.setState({ initialFill: currentFill })
   };
 
-  autoLoad = () => {
-    this.interval = setInterval(this.incrementBar.bind(this), 1000);
-  };
-
   resetBar = () => {
-    if (this.state.initialFill >= 500) {
-      clearInterval(this.interval)
-    }
     this.setState({ initialFill: 50 })
   };
 
   render() {
     return (
       <div className="outer-container">
-        <h1 className="load-label">Auto Loading Progress Bar</h1>
+        <h1 className="load-label">Manual Progress Bar</h1>
         <div className="progress-bar">
-          <div className="bar" style={{ width: this.state.initialFill }}/>
+          <div className="bar" style={{ width: this.state.initialFill }} />
         </div>
-        <button 
+        <button
           className="load-btn"
-          onClick={this.autoLoad}>
-          Load
+          onClick={this.incrementBar}>
+          Go
         </button>
         <button
           className="reset-button"
