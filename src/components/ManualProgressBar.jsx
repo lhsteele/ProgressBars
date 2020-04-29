@@ -33,7 +33,7 @@ export default class ManualProgressBar extends Component {
           className="load-btn"
           style={{ backgroundColor: SUNSET.color, border: SUNSET.color }}
           onClick={this.incrementBar}>
-          Go
+          Click
         </button>
         <button
           className="reset-button"
